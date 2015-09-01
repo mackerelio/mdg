@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+require 'erb'
+include ERB::Util
+
+MACKEREL_BASE_URL = "https://mackerel.io"
+
+if ARGV.size < 3
+  puts "$ mdg <orgName> <serviceName> <roleName> [ -f <config file(yaml)> ]"
+  exit
+end
+
+org_name, service_name, role_name = ARGV
+
+basic_graph_names = [
+  "loadavg5",
+  "cpu.{user,iowait,system}",
+  "cpu.{user,system}",
+  "cpu.user",
+  "cpu.iowait",
+  "cpu.system",
+  "interface.rxBytes",
+  "interface.txBytes",
+  "interface.{rxBytes,txBytes}",
+  "disk.reads",
+  "disk.writes",
+  "disk.{reads,writes}",
+  "memory.used(stack)",
+  "memory.used",
+  "memory.cached"
+]
+default_periods = [
+  "2d",
+  "3w",
+  "3mo"
+]
+
+def generate_graph_url(org_name, service_name, role_name, graph_name, period)
+  "#{MACKEREL_BASE_URL}/embed/orgs/#{url_encode(org_name)}/services/#{url_encode(service_name)}/#{url_encode(role_name)}?graph=#{url_encode(graph_name)}&period=#{url_encode(period)}"
+end
+
+def generate_graph_iframe(url)
+  "<iframe src='#{html_escape(url)}' height='200' width='400' frameborder='0'></iframe>"
+end
+
+basic_graph_names.each do |graph_name|
+  default_periods.each do |period|
+    url = generate_graph_url(org_name, service_name, role_name, graph_name, period)
+    puts generate_graph_iframe(url)
+  end
+end

@@ -3,7 +3,7 @@
 ### コマンド
 
 ```
-$ mdg <orgName> <serviceName> <rollName> [ -f <config file(yaml)> ]
+$ mdg <orgName> <serviceName> <roleName> [ -f <config file(yaml)> ]
 ```
 
 ### 出力
@@ -13,13 +13,13 @@ markdown を標準出力にだす
 ### Usage
 
 ```
-$ mdg <現状手動でorg名打ってもらう> `peco かなにかで service 絞り込み` `pecoかなにかで rollを絞り込み` -f ./config.yaml
+$ mdg <現状手動でorg名打ってもらう> `peco かなにかで service 絞り込み` `pecoかなにかで roleを絞り込み` -f ./config.yaml
 ```
 
 ### config.yaml
 
 ```yaml
-- periods: # 省略される場合のデフォルトは 
+- periods: # 省略される場合のデフォルトは
   - 1 day
   - 1 week
   - 1 month
