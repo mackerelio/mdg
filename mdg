@@ -2,6 +2,7 @@
 
 require 'erb'
 require 'optparse'
+require 'yaml'
 include ERB::Util
 
 MACKEREL_BASE_URL = "https://mackerel.io"
