@@ -44,8 +44,17 @@ def generate_graph_iframe(url)
 end
 
 basic_graph_names.each do |graph_name|
-  default_periods.each do |period|
+  puts "### #{graph_name}\n"
+
+  puts "|#{default_periods.join('|')}|"
+
+  puts "#{'|:--' * default_periods.size}|"
+
+  graphs = default_periods.map do |period|
     url = generate_graph_url(org_name, service_name, role_name, graph_name, period)
-    puts generate_graph_iframe(url)
+    generate_graph_iframe(url)
   end
+  puts "|#{graphs.join('|')}|"
+
+  puts "\n"
 end
