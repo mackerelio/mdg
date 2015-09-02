@@ -3,3 +3,5 @@ periods:
 graph_names:
   - loadavg5
   - cpu.user
+graph_size:
+  width: 600

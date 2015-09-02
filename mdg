@@ -46,11 +46,22 @@ config = {
     "memory.used(stack)",
     "memory.used",
     "memory.cached"
-  ]
+  ],
+  "graph_size" => {
+    "height" => 200,
+    "width" => 400
+  }
 }
 
+class ::Hash
+  def deep_merge(second)
+    merger = proc { |key, v1, v2| Hash === v1 && Hash === v2 ? v1.merge(v2, &merger) : v2 }
+    self.merge(second, &merger)
+  end
+end
+
 unless (config_file.nil?)
-  config.merge!(YAML.load_file(config_file))
+  config = config.deep_merge(YAML.load_file(config_file))
 end
 
 # print markdown
@@ -59,8 +70,8 @@ def generate_graph_url(org_name, service_name, role_name, graph_name, period)
   "#{MACKEREL_BASE_URL}/embed/orgs/#{url_encode(org_name)}/services/#{url_encode(service_name)}/#{url_encode(role_name)}?graph=#{url_encode(graph_name)}&period=#{url_encode(period)}"
 end
 
-def generate_graph_iframe(url)
-  "<iframe src='#{html_escape(url)}' height='200' width='400' frameborder='0'></iframe>"
+def generate_graph_iframe(url, height=200, width=400)
+  "<iframe src='#{html_escape(url)}' height='#{height}' width='#{width}' frameborder='0'></iframe>"
 end
 
 config['graph_names'].each do |graph_name|
@@ -72,7 +83,7 @@ config['graph_names'].each do |graph_name|
 
   graphs = config['periods'].map do |period|
     url = generate_graph_url(org_name, service_name, role_name, graph_name, period)
-    generate_graph_iframe(url)
+    generate_graph_iframe(url, config["graph_size"]["height"], config["graph_size"]["width"])
   end
   puts "|#{graphs.join('|')}|"
 
