@@ -1,16 +1,29 @@
 #!/usr/bin/env ruby
 
 require 'erb'
+require 'optparse'
 include ERB::Util
 
 MACKEREL_BASE_URL = "https://mackerel.io"
 
-if ARGV.size < 3
-  puts "$ mdg <orgName> <serviceName> <roleName> [ -f <config file(yaml)> ]"
+# parse command line options
+OPTS = {}
+
+opt = OptionParser.new
+opt.on('-o orgName', 'organization name') { |o| OPTS[:org_name] = o }
+opt.on('-s serviceName', 'service name') { |s| OPTS[:service_name] = s }
+opt.on('-r roleName', 'role name') { |r| OPTS[:role_name] = r }
+opt.on('-f [config.yaml]', 'config file(yaml)') { |c| OPTS[:config_file] = c }
+opt.parse!(ARGV)
+
+org_name = OPTS[:org_name]
+service_name = OPTS[:service_name]
+role_name = OPTS[:role_name]
+config_file = OPTS[:config_file]
+if (org_name.nil? or service_name.nil? or role_name.nil?)
+  puts opt.help
   exit
 end
-
-org_name, service_name, role_name = ARGV
 
 basic_graph_names = [
   "loadavg5",

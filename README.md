@@ -3,7 +3,7 @@
 ### コマンド
 
 ```
-$ mdg <orgName> <serviceName> <roleName> [ -f <config file(yaml)> ]
+$ mdg -o <orgName> -s <serviceName> -r <roleName> [ -f <config file(yaml)> ]
 ```
 
 ### 出力
@@ -13,7 +13,7 @@ markdown を標準出力にだす
 ### Usage
 
 ```
-$ mdg <現状手動でorg名打ってもらう> `peco かなにかで service 絞り込み` `pecoかなにかで roleを絞り込み` -f ./config.yaml
+$ mdg -o <現状手動でorg名打ってもらう> -s `peco かなにかで service 絞り込み` -r `pecoかなにかで roleを絞り込み` -f ./config.yaml
 ```
 
 ### config.yaml
