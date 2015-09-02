@@ -53,6 +53,23 @@ graph_size: # Default: height:200, width:400
   width: 600
 ```
 
+|name       |description                                |
+|--         |--                                         |
+|periods    |List of period of graph                    |
+|graph_names|Names of the graphs that will be generated |
+|graph_size |Size of the graph                          |
+
+Period uses 6 types of time formats as below and it can be combined with each other.
+
+- 1m (1minute)
+- 1h (1hour)
+- 1d (1day)
+- 1w (1week)
+- 1mo (1month)
+- 1y (1year)
+
+For example, `10w6h30m` means `10 weeks and 6 hours and 30 minutes`
+
 ### Sample shellscript to use `mdg` easily assisted by [peco](https://github.com/peco/peco)
 
 #### mdg_peco
