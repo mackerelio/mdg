@@ -64,7 +64,7 @@ graph_size: # Default: height:200, width:400
 # DEPENDENCIES:
 # - curl http://curl.haxx.se/
 # - jq   https://github.com/stedolan/jq
-# - peco https://github.com/stedolan/jq
+# - peco https://github.com/peco/peco
 
 if [ -z "$MACKEREL_API_BASE" ]; then
   MACKEREL_API_BASE="https://mackerel.io/api/v0"
