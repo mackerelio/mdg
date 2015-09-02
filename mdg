@@ -25,28 +25,34 @@ if (org_name.nil? or service_name.nil? or role_name.nil?)
   exit
 end
 
-basic_graph_names = [
-  "loadavg5",
-  "cpu.{user,iowait,system}",
-  "cpu.{user,system}",
-  "cpu.user",
-  "cpu.iowait",
-  "cpu.system",
-  "interface.rxBytes",
-  "interface.txBytes",
-  "interface.{rxBytes,txBytes}",
-  "disk.reads",
-  "disk.writes",
-  "disk.{reads,writes}",
-  "memory.used(stack)",
-  "memory.used",
-  "memory.cached"
-]
-default_periods = [
-  "2d",
-  "3w",
-  "3mo"
-]
+# load configure
+
+config = {
+  "periods" => ["2d", "3w", "3mo"],
+  "graph_names" => [
+    "loadavg5",
+    "cpu.{user,iowait,system}",
+    "cpu.{user,system}",
+    "cpu.user",
+    "cpu.iowait",
+    "cpu.system",
+    "interface.rxBytes",
+    "interface.txBytes",
+    "interface.{rxBytes,txBytes}",
+    "disk.reads",
+    "disk.writes",
+    "disk.{reads,writes}",
+    "memory.used(stack)",
+    "memory.used",
+    "memory.cached"
+  ]
+}
+
+unless (config_file.nil?)
+  config.merge!(YAML.load_file(config_file))
+end
+
+# print markdown
 
 def generate_graph_url(org_name, service_name, role_name, graph_name, period)
   "#{MACKEREL_BASE_URL}/embed/orgs/#{url_encode(org_name)}/services/#{url_encode(service_name)}/#{url_encode(role_name)}?graph=#{url_encode(graph_name)}&period=#{url_encode(period)}"
@@ -56,14 +62,14 @@ def generate_graph_iframe(url)
   "<iframe src='#{html_escape(url)}' height='200' width='400' frameborder='0'></iframe>"
 end
 
-basic_graph_names.each do |graph_name|
+config['graph_names'].each do |graph_name|
   puts "### #{graph_name}\n"
 
-  puts "|#{default_periods.join('|')}|"
+  puts "|#{config['periods'].join('|')}|"
 
-  puts "#{'|:--' * default_periods.size}|"
+  puts "#{'|:--' * config['periods'].size}|"
 
-  graphs = default_periods.map do |period|
+  graphs = config['periods'].map do |period|
     url = generate_graph_url(org_name, service_name, role_name, graph_name, period)
     generate_graph_iframe(url)
   end

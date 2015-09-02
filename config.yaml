@@ -1,0 +1,5 @@
+periods:
+  - 1d
+graph_names:
+  - loadavg5
+  - cpu.user
