@@ -1,4 +1,4 @@
-# mdg (mackerel dashboard generator)
+# mdg
 
 mdg - Mackerel Dashboard Generator
 
