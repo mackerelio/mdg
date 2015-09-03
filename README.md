@@ -41,23 +41,23 @@ $ mdg -o SampleOrg -s SampleService -r backend
 #### config.yaml
 
 ```yaml
-periods: # Default: ["2d", "3w", "3mo"]
+periods:
   - 1d
   - 1w
   - 1mo
-graph_names: # Default: all default graphs
+graph_names:
   - loadavg5
   - cpu.user
-graph_size: # Default: height:200, width:400
+graph_size:
   height: 200
   width: 600
 ```
 
-|name       |description                                |
-|---        |---                                        |
-|periods    |List of period of graph                    |
-|graph_names|Names of the graphs that will be generated |
-|graph_size |Size of the graph                          |
+|name       |description                                |default              |
+|---        |---                                        |---                  |
+|periods    |List of period of graph                    |["2d", "3w", "3mo"]  |
+|graph_names|Names of the graphs that will be generated |all basic graphs     |
+|graph_size |Size of the graph                          |height:200, width:400|
 
 Period uses 6 types of time formats as below and it can be combined with each other.
 
