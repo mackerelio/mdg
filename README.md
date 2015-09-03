@@ -93,7 +93,7 @@ if [ -z "$MACKEREL_ORG_NAME" ]; then
   MACKEREL_ORG_NAME="" # Write organization name
 fi
 
-function mackerel_api() {
+mackerel_api() {
   if [ -n "$1" ]; then
     curl -s -H "X-Api-Key: $1" "$MACKEREL_API_BASE$2"
   else
@@ -102,11 +102,11 @@ function mackerel_api() {
   fi
 }
 
-function mackerel_services() {
+mackerel_services() {
   mackerel_api "$MACKEREL_APIKEY" "/services" | jq -a -M -r '.services[].name'
 }
 
-function mackerel_roles() {
+mackerel_roles() {
   mackerel_api "$MACKEREL_APIKEY" "/services/$1/roles" | jq -a -M -r '.roles[].name'
 }
 
