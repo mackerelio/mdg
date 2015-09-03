@@ -29,7 +29,7 @@ end
 # load configure
 
 config = {
-  "periods" => ["2d", "3w", "3mo"],
+  "periods" => ["1d", "1w", "1mo"],
   "graph_names" => [
     "loadavg5",
     "cpu.{user,iowait,system}",

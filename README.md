@@ -23,14 +23,14 @@ $ mdg -o SampleOrg -s SampleService -r backend
 
 ```md
 ### loadavg5
-|2d|3w|3mo|
+|1d|1w|1mo|
 |:--|:--|:--|
-|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=loadavg5&amp;period=2d' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=loadavg5&amp;period=3w' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=loadavg5&amp;period=3mo' height='200' width='400' frameborder='0'></iframe>|
+|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=loadavg5&amp;period=1d' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=loadavg5&amp;period=1w' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=loadavg5&amp;period=1mo' height='200' width='400' frameborder='0'></iframe>|
 
 ### cpu.{user,iowait,system}
-|2d|3w|3mo|
+|1d|1w|1mo|
 |:--|:--|:--|
-|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=cpu.%7Buser%2Ciowait%2Csystem%7D&amp;period=2d' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=cpu.%7Buser%2Ciowait%2Csystem%7D&amp;period=3w' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=cpu.%7Buser%2Ciowait%2Csystem%7D&amp;period=3mo' height='200' width='400' frameborder='0'></iframe>|
+|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=cpu.%7Buser%2Ciowait%2Csystem%7D&amp;period=1d' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=cpu.%7Buser%2Ciowait%2Csystem%7D&amp;period=1w' height='200' width='400' frameborder='0'></iframe>|<iframe src='https://mackerel.io/embed/orgs/SampleOrg/services/SampleService/backend?graph=cpu.%7Buser%2Ciowait%2Csystem%7D&amp;period=1mo' height='200' width='400' frameborder='0'></iframe>|
 
 ...
 
@@ -55,7 +55,7 @@ graph_size:
 
 |name       |description                                |default              |
 |---        |---                                        |---                  |
-|periods    |List of period of graph                    |["2d", "3w", "3mo"]  |
+|periods    |List of period of graph                    |["1d", "1w", "1mo"]  |
 |graph_names|Names of the graphs that will be generated |all basic graphs     |
 |graph_size |Size of the graph                          |height:200, width:400|
 
