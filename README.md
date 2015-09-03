@@ -69,9 +69,9 @@ There are 6 types of time fields as follow.
 - 1y (1year)
 
 You can concatenate multiple fields to specify the values of `periods`.
-For example, `10w6h30m` means `10 weeks and 6 hours and 30 minutes`
+For example, `10w6h30m` means `10 weeks and 6 hours and 30 minutes`.
 
-### Sample shell script to use `mdg` easily assisted by [peco](https://github.com/peco/peco)
+### Sample shell script to use `mdg` assisted by [peco](https://github.com/peco/peco)
 
 #### mdg_peco
 
