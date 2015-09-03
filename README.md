@@ -54,7 +54,7 @@ graph_size: # Default: height:200, width:400
 ```
 
 |name       |description                                |
-|--         |--                                         |
+|---        |---                                        |
 |periods    |List of period of graph                    |
 |graph_names|Names of the graphs that will be generated |
 |graph_size |Size of the graph                          |
