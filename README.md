@@ -4,8 +4,8 @@ mdg - Mackerel Dashboard Generator
 
 ### DESCRIPTION
 
-`mdg` is a small script to help generate markdown for custom dashboard.
-It generate markdown which contains embedded graphs of specified service and role.
+`mdg` is a small script to help generating markdown for custom dashboard in Mackerel.
+The script generates a markdown which contains embedded graphs of specified service and role.
 
 It's written in Ruby.
 
@@ -59,7 +59,7 @@ graph_size:
 |graph_names|Names of the graphs that will be generated |all basic graphs     |
 |graph_size |Size of the graph                          |height:200, width:400|
 
-Period uses 6 types of time formats as below and it can be combined with each other.
+There are 6 types of time fields as follow.
 
 - 1m (1minute)
 - 1h (1hour)
@@ -68,16 +68,17 @@ Period uses 6 types of time formats as below and it can be combined with each ot
 - 1mo (1month)
 - 1y (1year)
 
+You can concatenate multiple fields to specify the values of `periods`.
 For example, `10w6h30m` means `10 weeks and 6 hours and 30 minutes`
 
-### Sample shellscript to use `mdg` easily assisted by [peco](https://github.com/peco/peco)
+### Sample shell script to use `mdg` easily assisted by [peco](https://github.com/peco/peco)
 
 #### mdg_peco
 
 ```sh
 #!/usr/bin/env sh
 # DESCRIPTION:
-#  Sample file for using mdg with peco
+#  Sample script for using mdg with peco
 # DEPENDENCIES:
 # - curl http://curl.haxx.se/
 # - jq   https://github.com/stedolan/jq
@@ -126,8 +127,8 @@ else
 fi
 ```
 
-Please export `MACKEREL_APIKEY` and `MACKEREL_ORG_NAME`, or write them directly in above script.
-You can use api key which don't have write permission.
+Please export `MACKEREL_APIKEY` and `MACKEREL_ORG_NAME`, or write them directly in the above script.
+You can use an api key which does not have the write permission.
 
 ```
 $ export MACKEREL_APIKEY="API KEY"
@@ -136,7 +137,7 @@ $ export MACKEREL_ORG_NAME="YOUR ORGANIZATION NAME"
 
 #### Usage
 
-You can specify service and role with [peco](https://github.com/peco/peco) by executing this script
+You can specify the service and the role with [peco](https://github.com/peco/peco) by executing this script
 
 ```
 $ sh /path/to/mdg_peco
