@@ -2,6 +2,10 @@
 
 mdg - Mackerel Dashboard Generator
 
+**Legacy Custom Dashboard is no longer supported. Use current Custom Dashboard.**
+
+- [Legacy Custom Dashboards will gradually be repealed in preparation for it’s full discontinuation at the end of March 2021](https://mackerel.io/blog/entry/announcement/20210112)
+
 ### DESCRIPTION
 
 `mdg` is a small script to help generating markdown for custom dashboard in Mackerel.
